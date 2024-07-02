@@ -1,0 +1,21 @@
+Name,Age
+John Doe,30
+Jane Smith,twenty-five
+Alice Johnson,25
+Bob Brown,45
+Chris Lee,thirty
+David Adams,40
+Eve Black,50
+Frank Green,fifty-five
+Grace White,60
+Hannah Young,sixty
+Ian Gray,70
+Jack Blue,80
+Karen Gold,eighty
+Larry Silver,90
+Mona Pink,100
+Nick Red,one hundred
+Oscar Orange,110
+Paul Purple,120
+Queen Yellow,thirty-five
+Rick Cyan,140

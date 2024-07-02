@@ -1,0 +1,5 @@
+www.google.com Yes
+www.yahoo.com No
+www.duckduckgo.com Yes
+www.youtube.com No
+www.aws.amazon.com No

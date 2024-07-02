@@ -1,0 +1,3 @@
+<li>Country: <span class="country-name">France</span>, Capital: <span class="country-capital">Paris</span></li>
+<li>Country: <span class="country-name">Japan</span>, Capital: <span class="country-capital">Tokyo</span></li>
+<li>Country: <span class="country-name">Canada</span>, Capital: <span class="country-capital">Ottawa</span></li>
