@@ -1,42 +1,46 @@
 #!/bin/bash
 
+# Check if all required arguments are provided
 if [ "$#" -ne 3 ]; then
-	    echo "Usage: $0 <city-name> <min|max> <mode|average>"
+	    echo "Usage: $0 <city-name> <min|max> <average|mode>"
 	        exit 1
 fi
 
-CITY_NAME=$1
-TEMP_TYPE=$2
-STAT_TYPE=$3
+city="$1"
+temperature_type="$2"
+calculation_mode="$3"
 
-# Define the URL
-URL="http://weather.local/city/${CITY_NAME}.html"
+# Fetch the weather data HTML
+weather_html=$(curl -s http://weather.local/city/${city}.html)
 
-# Fetch the HTML content
-HTML_CONTENT=$(curl -s "$URL")
+# Parse and extract temperature data
+temperature_data=$(echo "$weather_html" | grep -oP '<td>\d+°C \| \d+°C</td>' | sed 's/<\/\?td>//g' | tr '\n' ' ')
 
-# Extract temperatures
-if [ "$TEMP_TYPE" == "min" ]; then
-	    TEMPS=$(echo "$HTML_CONTENT" | grep -oP '\d{2}°C \| \d{2}°C' | sed 's/°C \| \d{2}°C//' | sed 's/°C//' | awk '{print $1}')
-    elif [ "$TEMP_TYPE" == "max" ]; then
-	        TEMPS=$(echo "$HTML_CONTENT" | grep -oP '\d{2}°C \| \d{2}°C' | sed 's/\d{2}°C \| //' | sed 's/°C//' | awk '{print $2}')
+# Extract minimum or maximum temperature based on argument
+if [ "$temperature_type" = "min" ]; then
+	    temperatures=$(echo "$temperature_data" | grep -oP '\d+' | awk 'BEGIN {min=1000} {if ($1<min) min=$1} END {print min}')
+    elif [ "$temperature_type" = "max" ]; then
+	        temperatures=$(echo "$temperature_data" | grep -oP '\d+' | awk 'BEGIN {max=0} {if ($1>max) max=$1} END {print max}')
 	else
-		    echo "Invalid temperature type: $TEMP_TYPE"
+		    echo "Invalid temperature type. Use 'min' or 'max'."
 		        exit 1
 fi
 
-# Calculate average
-if [ "$STAT_TYPE" == "average" ]; then
-	    AVERAGE=$(echo "$TEMPS" | awk '{ sum += $1; count += 1 } END { if (count > 0) print sum/count; else print 0; }')
-	        RESULT=$(printf "%.2f" "$AVERAGE")
+# Calculate average or mode based on argument
+if [ "$calculation_mode" = "average" ]; then
+	    sum=0
+	        count=0
+		    for temp in $temperatures; do
+			            sum=$(echo "$sum + $temp" | bc)
+				            count=$((count + 1))
+					        done
+						    average=$(echo "scale=10; $sum / $count" | bc)
+						    average_rounded=$(printf "%.2f\n" "$average")
+						    echo "$average_rounded"
+						elif [ "$calculation_mode" = "mode" ]; then
+							mode=$(echo "$temperatures" | sort | uniq -c | sort -n | awk '{print $2}' | head -n 1)
+							        echo "$mode"
+							else
+								    echo "Invalid calculation mode. Use 'average' or 'mode'."
+								        exit 1
 fi
-
-# Calculate mode
-if [ "$STAT_TYPE" == "mode" ]; then
-	    MODE=$(echo "$TEMPS" | sort | uniq -c | sort -nr | awk 'NR==1 {print $2}')
-	        RESULT=$(printf "%.2f" "$MODE")
-fi
-
-# Print the result
-echo $RESULT
-
