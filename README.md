@@ -16,6 +16,9 @@ BPT2_problem_1
 BPT2_problem_2
 BPT2_problem_3
 BPT2_problem_4
+BPT3_problem_1
+BPT3_problem_2
+BPT3_problem_3
 practice_2.1
 practice_2.10
 practice_2.2
