@@ -1,0 +1,1 @@
+file_check <(head -10 name_hex.txt)

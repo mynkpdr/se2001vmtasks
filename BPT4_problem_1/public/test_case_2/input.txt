@@ -1,0 +1,1 @@
+file_check /opt/se2001/BPT4_problem_1/public/test_case_2/valid.txt

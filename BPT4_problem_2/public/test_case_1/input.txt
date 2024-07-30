@@ -1,0 +1,11 @@
+example.jpg
+example.png
+example.gif
+example.pdf
+example.docx
+example.txt
+example.zip
+example.tar
+example.gz
+example.xyz
+example.abc

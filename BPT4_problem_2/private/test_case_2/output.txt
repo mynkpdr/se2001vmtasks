@@ -1,0 +1,5 @@
+Report:
+Image file: 1
+Document file: 1
+Compressed file: 1
+Unknown file type: 2

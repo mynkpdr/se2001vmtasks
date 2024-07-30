@@ -1,0 +1,6 @@
+1a2b3c4d This is an error message with an error that needs fixing.
+5f6e7d8c No errors here, just a warning.
+abcd1234 Another error followed by error.
+1234abcd error error error error
+nohexcode error should not be replaced here. or it will be an error.
+

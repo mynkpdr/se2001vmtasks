@@ -1,0 +1,6 @@
+Name	Age	Location
+
+hn Doe	30	New York
+
+ane Smith	25	Los Angeles
+

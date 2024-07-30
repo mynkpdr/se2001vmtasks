@@ -1,0 +1,6 @@
+-t tsv2csv
+###
+Name	Description
+Widget	"$20, 10% off"
+Gadget	"50% off, save $15"
+

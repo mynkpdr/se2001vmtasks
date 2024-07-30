@@ -1,0 +1,1 @@
+file_check /opt/assets/country_details.tsv

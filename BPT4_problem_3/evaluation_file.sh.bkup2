@@ -1,0 +1,88 @@
+#!/bin/bash
+
+SYNCHRO_ASSIGNMENT_DIR="/opt/se2001/$(basename "$(pwd)")"
+STUDENT_WORK_DIR=~/se2001/$(basename "$(pwd)")
+TEMP_DIR=~/temp_test_dir
+
+TOTAL_PUBLIC_TESTCASES=$(find "$SYNCHRO_ASSIGNMENT_DIR/public" -type d -name "test_case*" | wc -l)
+passed_public_testcases=0
+
+setup_test_environment() {
+  test_case_dir=$1
+  rm -rf $TEMP_DIR
+  mkdir -p $TEMP_DIR
+
+  # Extract command options and file content from input.txt
+  awk -v temp_dir="$TEMP_DIR" '
+  BEGIN { in_file_content=0; }
+  /^###$/ { in_file_content=1; next; }
+  {
+    if (in_file_content)
+      print > temp_dir"/input_file"
+    else
+      print > temp_dir"/command.txt"
+  }' $test_case_dir/input.txt
+}
+
+evaluate() {
+  test_case_dir=$1
+
+  # Setup test environment
+  setup_test_environment $test_case_dir
+
+  # Check if expected output file exists
+  if [ ! -f ${test_case_dir}/output.txt ]; then
+    echo "Expected output file not found: ${test_case_dir}/output.txt"
+    exit 1
+  fi
+
+  # Get expected output
+  expected_output=$(cat ${test_case_dir}/output.txt)
+
+  # Change to the student's work directory and run the student's script
+  pushd $STUDENT_WORK_DIR > /dev/null
+
+  # Read command options from command.txt
+  cmd_args=$(cat $TEMP_DIR/command.txt)
+
+  # Construct command arguments from the sourced variables
+  cmd_args+=" -i $TEMP_DIR/input_file"
+  cmd_args+=" -o $TEMP_DIR/output_file"
+
+  # Run the student's script with the constructed arguments
+  bash $STUDENT_WORK_DIR/convert_file.sh $cmd_args
+
+  # Capture the actual output
+  if [ -f $TEMP_DIR/output_file ]; then
+    actual_output=$(cat $TEMP_DIR/output_file)
+  else
+    actual_output=""
+  fi
+  popd > /dev/null
+
+  # Compare the actual output with the expected output
+  if [[ "$actual_output" == "$expected_output" ]]; then
+    echo "PASS: ${test_case_dir}"
+    passed_public_testcases=$((passed_public_testcases + 1))
+  else
+    echo "FAIL: ${test_case_dir}"
+    echo "Differences:"
+    echo "Expected:"
+    echo "$expected_output"
+    echo "Actual:"
+    echo "$actual_output"
+  fi
+}
+
+while read -r test_case; do
+  echo "-> $test_case" >&2
+  [ -z "$test_case" ] && continue
+  evaluate "$test_case"
+done < <(find "$SYNCHRO_ASSIGNMENT_DIR/public" -type d -name "test_case*" | sort)
+
+echo "Public Testcases Passed: $passed_public_testcases/$TOTAL_PUBLIC_TESTCASES" >&2
+
+if [ "$passed_public_testcases" -ne "$TOTAL_PUBLIC_TESTCASES" ]; then
+    exit 1
+fi
+

@@ -1,0 +1,2 @@
+1a2b3c4d This is an error message with an error that needs fixing.
+nohexcode error should not be replaced here. or it will be an error.

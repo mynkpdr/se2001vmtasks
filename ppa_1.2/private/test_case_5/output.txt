@@ -1,0 +1,12 @@
+abc.txt:         ASCII text
+deHZhx7hUz.txt:  empty
+iw11WROWqV.py:   empty
+IYTnm5SjkL.txt:  empty
+level1:          directory
+mDCWl8LV7B.html: empty
+mXYnuXhaJI.txt:  empty
+oKo4WiPoYN.py:   empty
+POnz4sE3lw.py:   empty
+sQ9Uwhl0Vb.py:   empty
+tUWVui57ea.txt:  empty
+y3RNZQlUka.html: empty

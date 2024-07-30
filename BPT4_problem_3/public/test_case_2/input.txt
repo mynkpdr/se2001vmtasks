@@ -1,0 +1,5 @@
+-t tsv2csv
+###
+Name	Age	Location
+John Doe	30	New York
+Jane Smith	25	Los Angeles

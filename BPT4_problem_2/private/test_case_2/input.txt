@@ -1,0 +1,5 @@
+document1.pdf
+image1.jpg
+compressed1.zip
+unknown1.xyz
+unknown2.abc

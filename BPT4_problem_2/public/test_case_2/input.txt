@@ -1,0 +1,5 @@
+picture1.jpg
+image1.png
+graphic1.gif
+photo1.jpg
+banner1.png
