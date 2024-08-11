@@ -1,0 +1,4 @@
+Circle Name,Region Name,Division Name,Office Name,Pincode,OfficeType,Delivery,District,StateName
+Maharashtra Circle,Mumbai Region,Mumbai City Division,Mumbai GPO,400001,HO,Delivery,MUMBAI,Maharashtra
+Maharashtra Circle,Mumbai Region,Mumbai Suburban Division,Andheri S.O,400053,SO,Delivery,MUMBAI,Maharashtra
+Maharashtra Circle,Pune Region,Pune City Division,Pune HPO,411001,HO,Delivery,PUNE,Maharashtra

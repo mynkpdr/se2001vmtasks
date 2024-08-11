@@ -1,0 +1,7 @@
+Document,Topic_group
+setup server connections setup server follow steps,Hardware
+troubleshoot network issues troubleshoot network hi can assist user with network issues thank,Network
+software installation for new hires software installation please assist with installation software for new hires,Software
+user password reset password reset user hi reset user passwords thank,Access
+update ticket system configurations ticket system updates,Software
+recurrent notification wireless vs wired automated ticket to be set up snow recurrent wireless vs ...;pc si validate,Miscellaneous

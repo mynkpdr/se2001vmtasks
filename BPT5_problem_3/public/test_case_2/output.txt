@@ -1,0 +1,3 @@
+Circle Name,Region Name,District,StateName,Pincode
+Andhra Pradesh Circle,Kurnool Region,ANANTHAPUR,Andhra Pradesh,515004
+Karnataka Circle,Bangalore Region,BANGALORE,Karnataka,560001

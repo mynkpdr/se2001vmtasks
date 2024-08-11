@@ -1,0 +1,5 @@
+Circle Name,Region Name,District,StateName,Pincode
+Andhra Pradesh Circle,Kurnool Region,ANANTHAPUR,Andhra Pradesh,515004
+Andhra Pradesh Circle,Kurnool Region,ANANTHAPUR,Andhra Pradesh,515731
+Andhra Pradesh Circle,Kurnool Region,ANANTHAPUR,Andhra Pradesh,515002
+Andhra Pradesh Circle,Kurnool Region,ANANTHAPUR,Andhra Pradesh,515766

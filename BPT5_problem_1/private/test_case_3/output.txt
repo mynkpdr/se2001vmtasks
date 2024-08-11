@@ -1,0 +1,5 @@
+Topic Group: Miscellaneous, Count: 1
+Topic Group: Software, Count: 2
+Topic Group: Hardware, Count: 1
+Topic Group: Network, Count: 1
+Topic Group: Access, Count: 1

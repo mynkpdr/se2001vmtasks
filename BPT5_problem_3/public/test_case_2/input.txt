@@ -1,0 +1,3 @@
+Circle Name,Region Name,Division Name,Office Name,Pincode,OfficeType,Delivery,District,StateName
+Andhra Pradesh Circle,Kurnool Region,Anantapur Division,A Narayanapuram B.O,515004,BO,Delivery,ANANTHAPUR,Andhra Pradesh
+Karnataka Circle,Bangalore Region,Bangalore West Division,Bangalore GPO,560001,HO,Delivery,BANGALORE,Karnataka

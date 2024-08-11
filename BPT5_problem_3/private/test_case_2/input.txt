@@ -1,0 +1,4 @@
+Circle Name,Region Name,Division Name,Office Name,Pincode,OfficeType,Delivery,District,StateName
+Tamil Nadu Circle,Chennai Region,Chennai City Central Division,Chennai GPO,600001,HO,Delivery,CHENNAI,Tamil Nadu
+Tamil Nadu Circle,Chennai Region,Chennai City North Division,Chennai City S.O,600001,SO,Delivery,CHENNAI,Tamil Nadu
+Tamil Nadu Circle,Chennai Region,Chennai City South Division,Chennai City B.O,600001,BO,Delivery,CHENNAI,Tamil Nadu
